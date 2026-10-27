@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chatcord</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%235865f2'/><text x='50' y='68' font-size='56' text-anchor='middle'>💬</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="auth">
+  <form id="authForm">
+    <h1>💬 Chatcord</h1>
+    <p class="muted" id="authSub">Welcome back! Sign in to continue.</p>
+    <label>Username<input id="aName" autocomplete="username" required maxlength="24"></label>
+    <label>Password<input id="aPass" type="password" autocomplete="current-password" required minlength="6"></label>
+    <div id="authErr" class="err"></div>
+    <button class="btn primary" id="authBtn">Log in</button>
+    <p class="muted small"><a href="#" id="authSwitch">Need an account? Register</a></p>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <nav id="rail"></nav>
+  <aside id="side">
+    <header id="sideHead"></header>
+    <div id="chanlist"></div>
+    <div id="callbar" hidden></div>
+    <div id="userpanel"></div>
+  </aside>
+  <main id="main">
+    <header id="topbar"></header>
+    <section id="chat">
+      <div id="msgs"></div>
+      <div id="typing"></div>
+      <div id="replybar" hidden></div>
+      <div id="pending"></div>
+      <form id="composer">
+        <button type="button" class="icon" id="attachBtn" title="Upload a file">＋</button>
+        <input type="file" id="fileInput" multiple hidden>
+        <textarea id="input" rows="1" maxlength="4000" placeholder="Message"></textarea>
+        <button type="button" class="icon" id="emojiBtn" title="Emoji">😊</button>
+        <button class="icon send" title="Send">➤</button>
+      </form>
+    </section>
+    <section id="callview" hidden></section>
+  </main>
+  <aside id="members"></aside>
+</div>
+<div id="modal" hidden></div>
+<div id="picker" hidden></div>
+<div id="lightbox" hidden></div>
+<div id="toasts"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
